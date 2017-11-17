@@ -5,4 +5,4 @@
 	<select id="findAll" resultType="cn.mldn.myspringboot.thymeleaf.vo.Dept">
 		SELECT deptno,dname,loc FROM dept ;
 	</select>
-</mapper>  
+</mapper>    
