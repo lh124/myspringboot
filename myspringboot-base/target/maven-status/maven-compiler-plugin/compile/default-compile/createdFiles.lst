@@ -1,0 +1,11 @@
+cn\mldn\myspringboot\config\ErrorPageConfig.class
+cn\mldn\myspringboot\config\ErrorPageConfig$1.class
+cn\mldn\myspringboot\config\GlobalExceptionHandler.class
+cn\mldn\myspringboot\config\GlobalExceptionHandler$1ErrorInfo.class
+cn\mldn\myspringboot\SampleControllerMain.class
+cn\mldn\myspringboot\base\MessageController.class
+cn\mldn\myspringboot\service\IMessageService.class
+cn\mldn\myspringboot\service\impl\MessageServiceImpl.class
+cn\mldn\myspringboot\base\SampleController.class
+cn\mldn\myspringboot\config\ServiceConfig.class
+cn\mldn\myspringboot\base\Test.class
