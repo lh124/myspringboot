@@ -81,5 +81,6 @@
 	<module>myspringboot-rabbitmq-consumer</module>
 	 <module>myspringboot-kafka-provider1</module>
 	<module>myspringboot-kafka-consumer</module>
+	<module>myspringboot-redis</module>
   </modules>
 </project>
