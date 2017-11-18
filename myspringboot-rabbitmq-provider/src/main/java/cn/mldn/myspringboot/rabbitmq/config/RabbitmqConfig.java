@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class RabbitmqConfig {
-
+  
 //	private static final String EXCHANGE="lh.springboot.exchange";
 //	private static final String ROUTINGKEY="lh.springboot.rouitingkey";
 //	private static final String QUEUE_NAME="lh.springboot.queue";
