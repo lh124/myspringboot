@@ -13,13 +13,12 @@ public class UploadController {
 		return "message/pages/back/admin/upload";
 	}
 	
-	@RequestMapping(path= {"/upload"},method= RequestMethod.POST)
-	public Object fileupload(MultipartFile  filter) {
+	@RequestMapping(value="/upload",method= RequestMethod.POST)
+	public void fileupload(MultipartFile  filter) {
 		if(filter!=null) {
 			System.err.println("原始文件名称：" + filter.getOriginalFilename());
 			System.err.println("文件的类型：" + filter.getContentType());
 			System.err.println("文件大小：" + filter.getSize());
 		}
-		return "uploads-finish";
 	}
 }

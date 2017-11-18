@@ -1,0 +1,15 @@
+server:
+  port: 8080
+spring:
+  kafka:
+    bootstrap-servers:
+    - kafka-single:9095
+    template:
+      default-topic: mldn
+    consumer:
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      group-id: group-1
+    properties:
+      sasl.mechanism: PLAIN
+      security.protocol: SASL_PLAINTEXT

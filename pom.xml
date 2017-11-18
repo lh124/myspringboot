@@ -76,5 +76,10 @@
     <module>myspringboot-thymeleaf</module>
     <module>myspringboot-upload</module>
 	<module>myspringboot-mybatis</module>
+	<module>myspringboot-mail</module>
+    <module>myspringboot-rabbitmq-provider</module>
+	<module>myspringboot-rabbitmq-consumer</module>
+	 <module>myspringboot-kafka-provider1</module>
+	<module>myspringboot-kafka-consumer</module>
   </modules>
 </project>
