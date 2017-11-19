@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>cn.mldn</groupId>
@@ -10,9 +11,10 @@
 	<name>myspringboot</name>
 	<url>http://maven.apache.org</url>
 	<properties>
-	<jdk.version>1.8</jdk.version>
+		<jdk.version>1.8</jdk.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<spring-boot-dependencies>1.5.8.RELEASE</spring-boot-dependencies>
+		<myspringboot.version>0.0.1</myspringboot.version>
 	</properties>
 	<dependencyManagement>
 		<dependencies>
@@ -23,12 +25,20 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
+
+			<dependency>
+				<groupId>cn.mldn</groupId>
+				<artifactId>myspringboot-restful-api</artifactId>
+				<version>${myspringboot.version}</version>
+			</dependency>
+
+
 		</dependencies>
 	</dependencyManagement>
-	
+
 	<build>
 		<finalName>myspringboot</finalName>
-		
+
 		<resources>
 			<resource>
 				<directory>src/main/resources</directory>
@@ -71,16 +81,20 @@
 	</build>
 	<modules>
 		<module>myspringboot-base</module>
-    <module>myspringboot-test</module>
-    <module>myspringboot-deep</module>
-    <module>myspringboot-thymeleaf</module>
-    <module>myspringboot-upload</module>
-	<module>myspringboot-mybatis</module>
-	<module>myspringboot-mail</module>
-    <module>myspringboot-rabbitmq-provider</module>
-	<module>myspringboot-rabbitmq-consumer</module>
-	 <module>myspringboot-kafka-provider1</module>
-	<module>myspringboot-kafka-consumer</module>
-	<module>myspringboot-redis</module>
-  </modules>
+		<module>myspringboot-test</module>
+		<module>myspringboot-deep</module>
+		<module>myspringboot-thymeleaf</module>
+		<module>myspringboot-upload</module>
+		<module>myspringboot-mybatis</module>
+		<module>myspringboot-mail</module>
+		<module>myspringboot-rabbitmq-provider</module>
+		<module>myspringboot-rabbitmq-consumer</module>
+		<module>myspringboot-kafka-provider1</module>
+		<module>myspringboot-kafka-consumer</module>
+		<module>myspringboot-redis</module>
+		<module>myspringboot-api</module>
+		<module>myspringboot-restful-api</module>
+		<module>myspringboot-restful-client</module>
+		<module>myspringboot-restful-service</module>
+	</modules>
 </project>
