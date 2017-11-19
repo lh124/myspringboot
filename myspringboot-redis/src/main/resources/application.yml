@@ -1,17 +1,25 @@
-spring:
-  datasource:
-    type: com.alibaba.druid.pool.DruidDataSource    # 配置当前要使用的数据源的操作类型
-    driver-class-name: org.gjt.mm.mysql.Driver      # 配置MySQL的驱动程序类
-    url: jdbc:mysql://localhost:3306/mybatismldn    # 数据库连接地址
-    username: root                                  # 数据库用户名
-    password: mysqladmin                            # 数据库连接密码
-    dbcp2:                                          # 进行数据库连接池的配置
-      min-idle: 5                                   # 数据库连接池的最小维持连接数    
-      initial-size: 5                               # 初始化提供的连接数
-      max-total: 5                                  # 最大的连接数
-      max-wait-millis: 200                          # 等待连接获取的最大超时时间
-mybatis:
-  config-location: classpath:mybatis/mybatis.cfg.xml  # mybatis配置文件所在路径
-  type-aliases-package: cn.mldn.myspringboot.thymeleaf.vo           # 定义所有操作类的别名所在包
-  mapper-locations:                                     # 所有的mapper映射文件
-  - classpath:mybatis/mapper/**/*.xml
+myredis:
+  redis-one: 
+    host: 192.168.124.128
+    port: 6379
+    password: mldnjava
+    timeout: 1000
+    database: 0
+    pool:
+      max-active: 10
+      max-idle: 8
+      min-idle: 2
+      max-wait: 100
+  redis-two:  # 名字随便写的，没有自动配置的作用，只能够读取
+    host: 192.168.124.128
+    port: 6379
+    password: mldnjava
+    timeout: 1000
+    database: 1
+    pool:
+      max-active: 10
+      max-idle: 8
+      min-idle: 2
+      max-wait: 100
+server:
+  port: 8080   # 定义服务端口
