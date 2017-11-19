@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>cn.mldn</groupId>
@@ -11,34 +10,100 @@
 	<name>myspringboot</name>
 	<url>http://maven.apache.org</url>
 	<properties>
-		<jdk.version>1.8</jdk.version>
+	<jdk.version>1.8</jdk.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<spring-boot-dependencies>1.5.8.RELEASE</spring-boot-dependencies>
-		<myspringboot.version>0.0.1</myspringboot.version>
+		<thymeleaf-extras-shiro.version>1.2.1</thymeleaf-extras-shiro.version>
+		<quartz.version>2.3.0</quartz.version>
+		<log4j.version>1.2.17</log4j.version>
+		<commons-logging.version>1.2</commons-logging.version>
+		<shiro.version>1.3.2</shiro.version>
+		<microboot.version>0.0.1</microboot.version>
+		<spring-boot-dependencies.version>1.5.8.RELEASE</spring-boot-dependencies.version>
+		<jdk.version>1.8</jdk.version>
+		<druid.version>1.1.0</druid.version>
+		<mybatis-spring-boot-starter.version>1.3.0</mybatis-spring-boot-starter.version>
 	</properties>
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-dependencies</artifactId>
-				<version>${spring-boot-dependencies}</version>
-				<type>pom</type>
-				<scope>import</scope>
+				<groupId>commons-logging</groupId>
+				<artifactId>commons-logging</artifactId>
+				<version>${commons-logging.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.github.theborakompanioni</groupId>
+				<artifactId>thymeleaf-extras-shiro</artifactId>
+				<version>${thymeleaf-extras-shiro.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>log4j</groupId>
+				<artifactId>log4j</artifactId>
+				<version>${log4j.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.shiro</groupId>
+				<artifactId>shiro-spring</artifactId>
+				<version>${shiro.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.shiro</groupId>
+				<artifactId>shiro-core</artifactId>
+				<version>${shiro.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.shiro</groupId>
+				<artifactId>shiro-ehcache</artifactId>
+				<version>${shiro.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.shiro</groupId>
+				<artifactId>shiro-quartz</artifactId>
+				<version>${shiro.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.opensymphony.quartz</groupId>
+						<artifactId>quartz</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.shiro</groupId>
+				<artifactId>shiro-web</artifactId>
+				<version>${shiro.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.quartz-scheduler</groupId>
+				<artifactId>quartz</artifactId>
+				<version>${quartz.version}</version>
 			</dependency>
 
 			<dependency>
 				<groupId>cn.mldn</groupId>
 				<artifactId>myspringboot-restful-api</artifactId>
-				<version>${myspringboot.version}</version>
+				<version>${microboot.version}</version>
 			</dependency>
-
-
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>${spring-boot-dependencies.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.alibaba</groupId>
+				<artifactId>druid</artifactId>
+				<version>${druid.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.mybatis.spring.boot</groupId>
+				<artifactId>mybatis-spring-boot-starter</artifactId>
+				<version>${mybatis-spring-boot-starter.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
-
 	<build>
-		<finalName>myspringboot</finalName>
-
+		<finalName>microboot</finalName>
 		<resources>
 			<resource>
 				<directory>src/main/resources</directory>
@@ -47,8 +112,10 @@
 					<include>**/*.yml</include>
 					<include>**/*.xml</include>
 					<include>**/*.tld</include>
+					<include>**/*.p12</include>
+					<include>**/*.conf</include>
 				</includes>
-				<filtering>false</filtering>
+				<filtering>true</filtering>
 			</resource>
 			<resource>
 				<directory>src/main/java</directory>
@@ -67,6 +134,7 @@
 				<filtering>false</filtering>
 			</resource>
 		</resources>
+
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -80,21 +148,22 @@
 		</plugins>
 	</build>
 	<modules>
-		<module>myspringboot-base</module>
-		<module>myspringboot-test</module>
-		<module>myspringboot-deep</module>
-		<module>myspringboot-thymeleaf</module>
-		<module>myspringboot-upload</module>
-		<module>myspringboot-mybatis</module>
-		<module>myspringboot-mail</module>
-		<module>myspringboot-rabbitmq-provider</module>
-		<module>myspringboot-rabbitmq-consumer</module>
-		<module>myspringboot-kafka-provider1</module>
-		<module>myspringboot-kafka-consumer</module>
-		<module>myspringboot-redis</module>
-		<module>myspringboot-api</module>
-		<module>myspringboot-restful-api</module>
-		<module>myspringboot-restful-client</module>
-		<module>myspringboot-restful-service</module>
-	</modules>
+	<module>myspringboot-base</module>
+    <module>myspringboot-test</module>
+    <module>myspringboot-deep</module>
+    <module>myspringboot-thymeleaf</module>
+    <module>myspringboot-upload</module>
+	<module>myspringboot-mybatis</module>
+	<module>myspringboot-mail</module>
+    <module>myspringboot-rabbitmq-provider</module>
+	<module>myspringboot-rabbitmq-consumer</module>
+	 <module>myspringboot-kafka-provider1</module>
+	<module>myspringboot-kafka-consumer</module>
+	<module>myspringboot-redis</module>
+	<module>myspringboot-api</module>
+	<module>myspringboot-restful-api</module>
+	<module>myspringboot-restful-client</module>
+	<module>myspringboot-restful-service</module>
+	<module>myspringboot-shrio</module>
+  </modules>
 </project>
