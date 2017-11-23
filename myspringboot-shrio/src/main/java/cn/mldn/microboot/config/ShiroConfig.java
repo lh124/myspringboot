@@ -136,6 +136,7 @@ public class ShiroConfig {
 	public ShiroDialect shiroDialect() { // 追加配置，否则无法启动Thymeleaf模版支持
 		return new ShiroDialect();
 	}
+	
 	@Bean
 	public DefaultWebSessionManager getSessionManager(SessionDAO sessionDAO) { // 6
 		DefaultWebSessionManager sessionManager = new DefaultWebSessionManager();
@@ -151,6 +152,7 @@ public class ShiroConfig {
 		sessionManager.setSessionIdCookieEnabled(true);
 		return sessionManager;
 	}
+	
 	@Bean
 	public DefaultWebSecurityManager getSecurityManager(Realm memberRealm, CacheManager cacheManager,
 			SessionManager sessionManager, RememberMeManager rememberMeManager) {// 7

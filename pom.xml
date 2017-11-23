@@ -165,5 +165,6 @@
 	<module>myspringboot-restful-client</module>
 	<module>myspringboot-restful-service</module>
 	<module>myspringboot-shrio</module>
+	<module>myspringboot-shiro-oauth</module>
   </modules>
 </project>
